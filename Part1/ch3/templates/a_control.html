@@ -1,0 +1,27 @@
+
+{% if user %}
+    <p>Hello, {{ user }}!</p>
+{% else %}
+    <p>Hello, Stranger!</p>
+{% endif %}
+
+<br>
+
+<ul>
+    {% for comment in comments %}
+        <li>{{ comment }}</li>
+    {% endfor %}
+</ul>
+
+<br>
+
+<!- macro, just as define a function ->
+{% macro render_comment(comment) %}
+    <li>{{ comment }}</li>
+{% endmacro %}
+
+<ul>
+    {% for comment in comments %}
+        {{ render_comment(comment) }}
+    {% endfor %}
+</ul>
